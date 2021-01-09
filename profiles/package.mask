@@ -22,6 +22,11 @@
 >=dev-haskell/ihaskell-diagrams-0.3.2.1
 
 # Wolfgang E. Sanyer <WolfgangESanyer@gmail.com> (2021-01-05)
+# There is a newer version available, and this older version will not work with
+# hashable-1.3 without tweaking the ebuild. Instead, we'll mask for removal.
+=dev-haskell/linear-1.20.9
+
+# Wolfgang E. Sanyer <WolfgangESanyer@gmail.com> (2021-01-05)
 # Both of these are produced by the same developer, both github repositories
 # have their latest commit in early 2018. These projects seem abandoned and
 # depend on older aeson, which causes many conflicts.
