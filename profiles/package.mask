@@ -1,3 +1,11 @@
+# Wolfgang E. Sanyer <WolfgangESanyer@gmail.com> (2021-01-09)
+# Per the description, this is simply a "convenient wrapper" around some other
+# diagrams-* packages. This is currently masked due to being unmaintained, and
+# not pulling in newer versions of the packages it wraps. An upstream issue has
+# been opened [here](https://github.com/diagrams/diagrams/issues/25)
+>=dev-haskell/diagrams-1.4
+>=dev-haskell/ihaskell-diagrams-0.3.2.1
+
 # Wolfgang E. Sanyer <WolfgangESanyer@gmail.com> (2021-01-05)
 # Both of these are produced by the same developer, both github repositories
 # have their latest commit in early 2018. These projects seem abandoned and
