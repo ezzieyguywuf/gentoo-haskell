@@ -20,7 +20,7 @@ IUSE="ffi gmp"
 
 RESTRICT=test # pulls stack
 
-RDEPEND=">=dev-haskell/aeson-0.6:=[profile?] <dev-haskell/aeson-1.5:=[profile?]
+RDEPEND=">=dev-haskell/aeson-0.6:=[profile?]
 	>=dev-haskell/annotated-wl-pprint-0.7:=[profile?] <dev-haskell/annotated-wl-pprint-0.8:=[profile?]
 	<dev-haskell/ansi-terminal-0.11:=[profile?]
 	<dev-haskell/ansi-wl-pprint-0.7:=[profile?]
@@ -37,7 +37,7 @@ RDEPEND=">=dev-haskell/aeson-0.6:=[profile?] <dev-haskell/aeson-1.5:=[profile?]
 	>=dev-haskell/megaparsec-7.0.4:=[profile?] <dev-haskell/megaparsec-9:=[profile?]
 	>=dev-haskell/mtl-2.1:=[profile?] <dev-haskell/mtl-2.3:=[profile?]
 	>=dev-haskell/network-2.7:=[profile?] <dev-haskell/network-3.1.2:=[profile?]
-	>=dev-haskell/optparse-applicative-0.13:=[profile?] <dev-haskell/optparse-applicative-0.16:=[profile?]
+	>=dev-haskell/optparse-applicative-0.13:=[profile?]
 	>=dev-haskell/parser-combinators-1.0.0:=[profile?]
 	>=dev-haskell/regex-tdfa-1.2:=[profile?]
 	>=dev-haskell/safe-0.3.9:=[profile?]
@@ -57,13 +57,15 @@ RDEPEND=">=dev-haskell/aeson-0.6:=[profile?] <dev-haskell/aeson-1.5:=[profile?]
 "
 DEPEND="${RDEPEND}
 	>=dev-haskell/cabal-2.4
-	test? ( dev-haskell/tagged
+	test? ( dev-haskell/cabal
+		dev-haskell/tagged
 		>=dev-haskell/tasty-0.8
 		>=dev-haskell/tasty-golden-2.0
 		>=dev-haskell/tasty-rerun-1.0.0 )
 "
 
-PATCHES=( "${FILESDIR}"/${P}-haskeline-0.8.patch )
+PATCHES=( "${FILESDIR}"/${P}-haskeline-0.8.patch
+		  "${FILESDIR}"/${PN}-1.3.3-remove-git-from-test-configuration.patch )
 
 src_prepare() {
 	default
@@ -79,7 +81,9 @@ src_prepare() {
 
 	cabal_chdeps \
 		'Cabal >= 2.4 && < 3.1' 'Cabal >= 2.4' \
-		'haskeline >= 0.7 && < 0.8' 'haskeline >= 0.8'
+		'haskeline >= 0.7 && < 0.8' 'haskeline >= 0.8' \
+		'aeson >= 0.6 && < 1.5' 'aeson >= 0.6' \
+		'optparse-applicative >= 0.13 && < 0.16' 'optparse-applicative >= 0.13'
 }
 
 src_configure() {
