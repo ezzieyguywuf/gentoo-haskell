@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -15,7 +15,6 @@ SRC_URI="https://hackage.haskell.org/package/${P}/${P}.tar.gz"
 LICENSE="BSD-2"
 SLOT="0/${PV}"
 KEYWORDS="~amd64 ~x86"
-IUSE="dev"
 
 RDEPEND=">=dev-haskell/hspec-2.0:=[profile?] <dev-haskell/hspec-3.0:=[profile?]
 	>=dev-haskell/hspec-expectations-0.8:=[profile?] <dev-haskell/hspec-expectations-0.9:=[profile?]
@@ -33,7 +32,8 @@ DEPEND="${RDEPEND}
 		>=dev-haskell/scientific-0.3.1 <dev-haskell/scientific-0.4 )
 "
 
-src_configure() {
-	haskell-cabal_src_configure \
-		$(cabal_flag dev dev)
+src_prepare() {
+	default
+	cabal_chdeps\
+		'QuickCheck   >= 2.10  && < 2.14' 'QuickCheck   >= 2.10  && < 2.15'
 }
