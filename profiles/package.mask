@@ -1,7 +1,9 @@
 # Wolfgang E. Sanyer <WolfgangESanyer@gmail.com> (2021-03-02)
 # There are many packages that have an upperbound for tasty less that v1.4, so
-# until those conflicts have been resolved, we will leave it masked
+# until those conflicts have been resolved, we will leave it masked, including
+# any packages that require it with a lower-bound
 >=dev-haskell/tasty-1.4.1
+>=dev-haskell/uuid-types-1.0.4
 
 # Wolfgang E. Sanyer <WolfgangESanyer@gmail.com> (2021-02-27)
 # These are packages that cause some sort of conflict related to ghc-9. Please
