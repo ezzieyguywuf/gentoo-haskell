@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -15,11 +15,10 @@ SRC_URI="https://hackage.haskell.org/package/${P}/${P}.tar.gz"
 LICENSE="LGPL-3"
 SLOT="0/${PV}"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
 
 RDEPEND=">=dev-haskell/magic-1.1:=[profile?] <dev-haskell/magic-1.2:=[profile?]
 	>=dev-haskell/mtl-2.0:=[profile?] <dev-haskell/mtl-2.3:=[profile?]
-	>=dev-haskell/random-1.1:=[profile?] <dev-haskell/random-1.2:=[profile?]
+	>=dev-haskell/random-1.1:=[profile?]
 	>=dev-lang/ghc-7.8.2:=
 	>=x11-wm/xmonad-0.13:=[profile?]
 "
@@ -31,5 +30,6 @@ src_prepare() {
 	default
 
 	cabal_chdeps \
-		'xmonad >=0.13 && <=0.13' 'xmonad >=0.13'
+		'xmonad >=0.13 && <=0.13' 'xmonad >=0.13' \
+		'random >=1.1 && <1.2' 'random >=1.1'
 }
