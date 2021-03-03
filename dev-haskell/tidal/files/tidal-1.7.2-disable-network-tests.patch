@@ -1,0 +1,19 @@
+diff --git a/tidal.cabal b/tidal.cabal
+index ab55ee0..f9c218d 100644
+--- a/tidal.cabal
++++ b/tidal.cabal
+@@ -98,14 +98,6 @@ test-suite tests
+ 
+   default-language: Haskell2010
+ 
+--- not useful for automation since it requires running sclang
+-test-suite dontcrash
+-  type: exitcode-stdio-1.0
+-  main-is: dontcrash.hs
+-  hs-source-dirs: test
+-  build-depends: base, tidal
+-  default-language:    Haskell2010
+-
+ benchmark bench-speed
+   type:             exitcode-stdio-1.0
+   main-is:          Main.hs
